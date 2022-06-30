@@ -1,0 +1,4 @@
+-r requirements.txt
+
+django-debug-toolbar==2.1
+pudb==2022.1.1
