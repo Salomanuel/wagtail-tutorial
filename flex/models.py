@@ -11,7 +11,7 @@ from streams import blocks
 from home.models import new_table_options
 
 class FlexPage(Page):
-
+    parent_page_types = ["home.HomePage", "flex.FlexPage"]
     body = StreamField([
         ("title", blocks.TitleBlock()),
         ("cards", blocks.CardsBlock()),
