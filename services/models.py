@@ -6,6 +6,9 @@ from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 
 class ServiceListingPage(Page):
+    parent_page_types = ["home.HomePage"]
+    subpage_types = ["services.ServicePage"]
+    max_count = 1
     subtitle = models.TextField(
             blank=True,
             max_length=500,
@@ -22,7 +25,8 @@ class ServiceListingPage(Page):
         return context
 
 class ServicePage(Page):
-
+    parent_page_types = ["services.ServiceListingPage"]
+    subpage_types = []
     template = "services/service_page.html"
 
     description = models.TextField(
