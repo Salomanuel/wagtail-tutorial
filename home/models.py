@@ -38,7 +38,7 @@ new_table_options = {
 class HomePage(Page):
     parent_page_types = ["wagtailcore.Page"]
     max_count = 1
-    subpage_types = ["flex.FlexPage", "services.ServiceListingPage"]
+    subpage_types = ["flex.FlexPage", "services.ServiceListingPage", "contact.ContactPage"]
     lead_text = models.CharField(
         max_length=140,
         blank=True,
