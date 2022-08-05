@@ -41,13 +41,16 @@
         @todo add hours
       </div>
       <div class="px-lg-3 col-lg-3 col-md-6 col-sm-12">
-        <a href="@todo" class="cc-footer-social-icon">
+          <a href="{{ settings.site_settings.SocialMediaSettings.facebook }}" class="cc-footer-social-icon">
           <img src="{% static 'images/facebook.svg' %}" alt="Facebook">
         </a>
-        <a href="@todo" class="cc-footer-social-icon">
+        <a href="{{ settings.site_settings.SocialMediaSettings.twitter }}" class="cc-footer-social-icon">
           <img src="{% static 'images/twitter.svg' %}" alt="Twitter">
         </a>
-        <a href="@todo" class="cc-footer-social-icon">
+        <a href="{{ settings.site_settings.SocialMediaSettings.instagram }}" class="cc-footer-social-icon">
+          <img src="{% static 'images/instagram.svg' %}" alt="Instagram">
+        </a>
+        <a href="{{ settings.site_settings.SocialMediaSettings.youtube }}" class="cc-footer-social-icon">
           <img src="{% static 'images/youtube.svg' %}" alt="Youtube">
         </a>
         <div class="cc-footer-copy">&copy; {% now "Y" %} Rocketman</div>
