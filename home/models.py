@@ -1,9 +1,11 @@
+from django.core.cache import cache
+from django.core.cache.utils import make_template_fragment_key
 from unittest.util import _MAX_LENGTH
 
 from django.db import models
 from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.models import Page
+from wagtail.models import Page, cache
 from wagtail.core.fields import StreamField
 from wagtail.snippets.blocks import SnippetChooserBlock
 from streams import blocks
@@ -86,3 +88,12 @@ class HomePage(Page):
         ImageChooserPanel("banner_background_image"),
         StreamFieldPanel("body"),
     ]
+
+    def save(self, *args, **kwargs):
+        key = make_template_fragment_key(
+                "home_page_streams",
+                [self.id],
+        )
+        cache.delete(key)
+
+        return super().save(*args, **kwargs)
